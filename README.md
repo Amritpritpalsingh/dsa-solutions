@@ -1,26 +1,35 @@
-# Data Structures and Algorithms (DSA)
+# 🧠 LeetCode Solutions (C++)
 
-This repository contains my DSA practice problems and solutions in C++.
-
-## 🗂 Structure
-- `arrays/` – Problems related to arrays
-- `linked_list/` – Linked list implementations
-- `trees/` – Binary trees, BSTs, traversals, etc.
-- `dynamic_programming/` – Classic DP problems
-
-## 🛠 Languages Used
-- Python / C++ / Java
-
-## 🚀 How to Run
-```bash
-python arrays/reverse_array.py
-# or
-g++ arrays/max_subarray_sum.cpp -o run && ./run
+This repository contains my **accepted LeetCode solutions** in **C++**, automatically uploaded using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-v2).
 
 ---
 
-### 🔁 Step 5: Push Changes to GitHub
-```bash
-git add .
-git commit -m "Initial DSA setup"
-git push origin main
+Each file includes:
+- **Execution time and memory usage**
+- **Problem name and number**
+- **Solution code in C++**
+
+---
+
+## 💻 Language
+- **C++**
+
+---
+
+## ⚙️ How It Works
+- Problems solved on [LeetCode](https://leetcode.com) are automatically pushed here via **LeetHub v2**.
+- Each commit contains runtime and memory stats in the message:
+- 
+---
+
+## 🎯 Purpose
+- Keep all solved problems organized and version-controlled.
+- Track performance (runtime/memory).
+- Showcase problem-solving progress in C++.
+
+---
+
+## ⭐ Acknowledgments
+- [LeetHub v2 by Arun Bhardwaj](https://github.com/arunbhardwaj/LeetHub-v2)
+- [LeetCode](https://leetcode.com/)
+
