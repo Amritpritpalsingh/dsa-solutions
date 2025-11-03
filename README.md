@@ -15,7 +15,10 @@ Each file includes:
 - **C++**
 
 ---
+## Leetcode Profile Link
+ **https://leetcode.com/u/amritpritpalsingh/**
 
+---
 ## ⚙️ How It Works
 - Problems solved on [LeetCode](https://leetcode.com) are automatically pushed here via **LeetHub v2**.
 - Each commit contains runtime and memory stats in the message:
