@@ -1,6 +1,6 @@
 # Data Structures and Algorithms (DSA)
 
-This repository contains my DSA practice problems and solutions in [your language].
+This repository contains my DSA practice problems and solutions in C++.
 
 ## 🗂 Structure
 - `arrays/` – Problems related to arrays
