@@ -7,7 +7,7 @@ This repository contains my **accepted LeetCode solutions** in **C++/Python**, a
 Each file includes:
 - **Execution time and memory usage**
 - **Problem name and number**
-- **Solution code in C++**
+- **Solution code in C++/Python**
 
 ---
 
