@@ -1,6 +1,6 @@
-# 🧠 LeetCode Solutions (C++)
+# 🧠 LeetCode Solutions (C++/Python)
 
-This repository contains my **accepted LeetCode solutions** in **C++**, automatically uploaded using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-v2).
+This repository contains my **accepted LeetCode solutions** in **C++/Python**, automatically uploaded using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-v2).
 
 ---
 
@@ -13,6 +13,7 @@ Each file includes:
 
 ## 💻 Language
 - **C++**
+- **Python**
 
 ---
 ## Leetcode Profile Link
@@ -28,7 +29,7 @@ Each file includes:
 ## 🎯 Purpose
 - Keep all solved problems organized and version-controlled.
 - Track performance (runtime/memory).
-- Showcase problem-solving progress in C++.
+- Showcase problem-solving progress.
 
 ---
 
