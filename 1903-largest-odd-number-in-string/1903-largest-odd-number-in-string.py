@@ -1,13 +1,13 @@
 class Solution(object):
     def largestOddNumber(self, num):
         res=""
-        x= int(num)
-        while(x>0):
-            if(x%2!=0):
-                res=x
+        num= int(num)
+        while(num>0):
+            if(num%2!=0):
+                res=num
                 break
             else:
-                x//=10
+                num//=10
         return str(res)
       
         
