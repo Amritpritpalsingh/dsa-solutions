@@ -6,18 +6,18 @@
 
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
-        hA  = headA
-        hB = headB
-        map = {}
-        while hA:
-            if(hA not in map):
-                map[hA] = 1
-            else :
-                map[hA] +=1
-            hA = hA.next
-        while(hB):
-            if(hB in map):
-                return hB
-            hB = hB.next
+        if headA is None or headB is None : return None
+        ha  = headA
+        hb = headB
+        while(ha!= hb):
+            ha = ha.next
+            hb = hb.next
+            if(hb==ha):return ha
+            if(ha is None):
+                ha = headB
+            if(hb is None):
+                hb = headA
+        return ha
+        
 
-        return  None
+
