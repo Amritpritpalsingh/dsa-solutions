@@ -6,16 +6,15 @@
 class Solution(object):
     def reverseList(self, head):
         prev = None
-        nhead=None
-        while head:
-            newNode = ListNode(head.val)
-            if(nhead is None):
-                nhead = newNode
-            else:
-                newNode.next = nhead
-                nhead = newNode
-            head=head.next
-        return nhead
+        curr = head
+        newHead = prev
+        while(curr):
+            prev = curr
+            curr = curr.next
+            prev.next = newHead
+            newHead = prev
+        return prev
+
 
 
             
