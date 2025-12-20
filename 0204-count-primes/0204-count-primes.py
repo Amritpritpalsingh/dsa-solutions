@@ -8,7 +8,7 @@ class Solution(object):
         cnt = 0
         for i in range(2,n):
             if(l[i]==1):
-                cnt+=1
+                cnt+=1 
         return cnt
 
         
