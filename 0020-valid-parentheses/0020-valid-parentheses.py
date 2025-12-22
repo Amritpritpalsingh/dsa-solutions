@@ -14,7 +14,7 @@ class Solution(object):
                     continue
                 else:
                     return False
-
+        if(st.qsize()!=0):return False
         return True
             
 
