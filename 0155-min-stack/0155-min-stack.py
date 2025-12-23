@@ -1,23 +1,46 @@
+from Queue import LifoQueue
 class MinStack(object):
 
     def __init__(self):
-        self.stack = []
-        self.minStack = []
-
+        self.st = LifoQueue()
+        self.min = float("inf")
+        
     def push(self, val):
-        self.stack.append(val)
-        # if minStack empty, or new value <= current min, push to minStack
-        if not self.minStack:
-            self.minStack.append(val)
+        if(self.st.qsize()==0):
+            self.min = val
+            self.st.put(val)
         else:
-            self.minStack.append(min(val, self.minStack[-1]))
-
+            if(val>self.min):
+                self.st.put(val)
+            else:
+                self.st.put(((2*val)-self.min))
+                self.min = val
     def pop(self):
-        self.stack.pop()
-        self.minStack.pop()
+        if(self.st.qsize()==0):
+            return 
+        x  = self.st.get()
+        if(x<self.min):
+            self.min = 2*self.min-x
+        return self.min
+        
 
     def top(self):
-        return self.stack[-1]
+        if(self.st.qsize()==0):
+            return 
+        x = self.st.queue[-1]
+        if(x>self.min):
+            return x
+        return self.min
+
 
     def getMin(self):
-        return self.minStack[-1]
+        return self.min
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
