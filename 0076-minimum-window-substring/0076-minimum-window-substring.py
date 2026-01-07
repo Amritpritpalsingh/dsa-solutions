@@ -2,34 +2,37 @@ class Solution(object):
     def minWindow(self, s, t):
         if not s or not t:
             return ""
+        map = {}
+        start_idx = -1
+        cnt = 0
+        len_s = len(s)
+        len_t = len(t)
+        l_ptr = 0
+        min_len = float("inf")
+        for i in range(len_t):
+            if t[i] not in map:
+                map[t[i]] = 1
+            else:
+                map[t[i]]+= 1 
 
-        from collections import Counter
+        for r_ptr in range(len_s):
+            if(s[r_ptr] in map):
+                if(map[s[r_ptr]]>0):
+                    cnt+=1
+                map[s[r_ptr]]-=1
+            while(cnt==len_t):
+                if(s[l_ptr] in map):
+                    map[s[l_ptr]]+=1
+                    if(map[s[l_ptr]]>0):
+                        cnt-=1
+                if min_len > r_ptr - l_ptr + 1 :
+                    min_len = r_ptr - l_ptr  + 1
+                    start_idx = l_ptr
+                l_ptr+=1
 
-        need = Counter(t)
-        window = {}
-        required = len(need)
-        formed = 0
+        return "" if start_idx == -1 else s[start_idx:start_idx + min_len]
 
-        l = 0
-        ans = (float("inf"), None, None)
+        
 
-        for r in range(len(s)):
-            char = s[r]
-            window[char] = window.get(char, 0) + 1
 
-            if char in need and window[char] == need[char]:
-                formed += 1
-
-            while l <= r and formed == required:
-                if r - l + 1 < ans[0]:
-                    ans = (r - l + 1, l, r)
-
-                left_char = s[l]
-                window[left_char] -= 1
-
-                if left_char in need and window[left_char] < need[left_char]:
-                    formed -= 1
-
-                l += 1
-
-        return "" if ans[0] == float("inf") else s[ans[1]:ans[2]+1]
+            
