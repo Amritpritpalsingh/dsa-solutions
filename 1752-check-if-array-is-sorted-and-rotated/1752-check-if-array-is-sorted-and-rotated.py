@@ -1,21 +1,20 @@
 class Solution(object):
     def check(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        cnt = 1
-        n = len(nums)
-        if(n==1):return True
-        for i in range(1,2*n):
-            if(nums[(i-1)%n]<=nums[i%n]):
-                cnt+=1
-            else:
-                cnt=1
-            if(cnt==n):
+        dummy = nums[:]
+        dummy.sort()
+        length = len(nums)
+        for i in range(length):
+            flag = True
+            first = dummy[0]
+            for j in range(length - 1):
+                dummy[j] = dummy[j+1]
+            dummy[-1] = first
+            for k in range(length):
+                if(nums[k]!=dummy[k]):
+                    flag = False
+                    break
+            if(flag is True):
                 return True
         return False
-            
-       
-    
+        
         
