@@ -13,9 +13,6 @@ class Solution(object):
     
         flag = True
         
-        if(start_b == -1):
-            return flag
-
         for i in range(i,n):
             if(s[i]=="a"):
                 flag = False
