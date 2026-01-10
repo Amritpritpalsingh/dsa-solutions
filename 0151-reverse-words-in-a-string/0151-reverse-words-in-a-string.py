@@ -1,22 +1,20 @@
 class Solution(object):
     def reverseWords(self, s):
-        stack = []
-        el = ""
-        for i in range(len(s)):
-            if(s[i]!=" "):
-                el+=s[i]
-            elif(s[i]==" " and len(el)!=0):
-            
-                stack.append(el)
-                el=""
-                
-        if(s[-1]!=" "):
-            stack.append(el)
-        res  = ""
+        res =""
+        ans = ""
 
-        for i in range(len(stack)-1,-1,-1):
-            if(i!=0):
-                res+=stack[i]+" "
+        for c in s:
+            if(c == " "):
+                if(len(ans)):
+                    if(len(res)):
+                        res = ans+" "+res
+                    else:
+                        res = ans+res
+
+                ans = ""
+                continue
             else:
-                res+=stack[i]
+                ans+=c
+        if(len(ans)):
+            res = ans+" "+res
         return res
