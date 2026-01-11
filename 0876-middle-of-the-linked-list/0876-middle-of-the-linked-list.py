@@ -7,10 +7,9 @@ class Solution(object):
     def middleNode(self, head):
         slow = head
         fast = head
-        
-        while fast and fast.next:
-            slow = slow.next
+        while(fast is not None and fast.next is not None):
             fast = fast.next.next
-        
+            slow = slow.next
         
         return slow
+        
