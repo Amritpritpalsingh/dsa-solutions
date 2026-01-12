@@ -1,22 +1,20 @@
 class Solution(object):
     def majorityElement(self, nums):
-        cnt = 0
+        maxi_cnt =1
+        nums.sort()
+        maj_el = nums[0]
+        cnt = 1
         n = len(nums)
-        maxi = nums[0]
-        for i in nums:
-            if(cnt==0):
-                maxi = i
+        i=1
+        while(i<n):
+            if(nums[i] != nums[i-1]):
+                if(cnt>maxi_cnt):
+                    maxi_cnt = cnt
+                    maj_el = nums[i-1]
                 cnt = 1
-            elif i==maxi:
-                cnt+=1
-            else:
-                cnt-=1
-        cntMax = 0
-        for i in nums:
-            if(i==maxi):
-                cntMax+=1
-        if(cntMax>(n//2)):
-            return maxi
+            cnt+=1
+            i+=1
+        if(cnt>maxi_cnt):
+            return(nums[i-1])
         else:
-            return -1
-        
+            return(maj_el)
