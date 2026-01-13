@@ -1,38 +1,43 @@
 class Solution(object):
-    def sortList(self, head):
-        if not head or not head.next:
-            return head
-        
-        # 1. Split the list into two halves
-        slow, fast = head, head.next
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        
-        mid = slow.next
-        slow.next = None   # break the list
-        
-        # 2. Sort each half
-        left = self.sortList(head)
-        right = self.sortList(mid)
-        
-        # 3. Merge sorted halves
-        return self.merge(left, right)
-    
-    def merge(self, l1, l2):
-        dummy = tail = ListNode(0)
-        while l1 and l2:
-            if l1.val < l2.val:
-                tail.next = l1
-                l1 = l1.next
+    def merge(self, l_head, r_head):
+        dummy = ListNode()
+        curr = dummy
+
+        while l_head and r_head:
+            if l_head.val <= r_head.val:
+                curr.next = l_head
+                l_head = l_head.next
             else:
-                tail.next = l2
-                l2 = l2.next
-            tail = tail.next
-        
-        if l1:
-            tail.next = l1
-        if l2:
-            tail.next = l2
-        
+                curr.next = r_head
+                r_head = r_head.next
+            curr = curr.next
+
+        curr.next = l_head if l_head else r_head
         return dummy.next
+
+
+    
+
+    def sort(self, head):
+        if(head.next is None):
+            return head
+        fast = head
+        right = head
+        while(fast and fast.next):
+            fast = fast.next.next
+            right = right.next
+        left = head
+        temp = left
+        while(temp.next!=right):
+            temp = temp.next
+        temp.next = None
+        
+        l_list = self.sort(left)
+        r_list = self.sort(right)
+        return self.merge(l_list, r_list)
+
+    def sortList(self, head):
+        if not head:
+            return None
+       
+        return self.sort(head)
