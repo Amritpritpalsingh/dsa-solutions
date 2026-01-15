@@ -4,58 +4,50 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def rev(self,head):
-    
-        new_head = None
+    def rev_ll(self,head):
+        prev = None
         curr = head
-        length = 0
-        while curr:
-            node = ListNode(curr.val)   # create new node
-            node.next = new_head        # reverse link
-            new_head = node
-            curr = curr.next
-            length +=1 
 
-        return new_head,length
+        while curr:
+            nxt = curr.next     # save next node
+            curr.next = prev    # reverse pointer
+            prev = curr         # move prev forward
+            curr = nxt          # move curr forward
+
+        return prev
 
     def reorderList(self, head):
-        if(head is None or head.next is None):return None
-        r_ptr = head
-        rHead,length = self.rev(head)
-        result_head = ListNode(-1)
-        dummyH = result_head
-        l_ptr = rHead
-        if(length%2==0):
-            for i in range(length//2):
-                dummyH.next = r_ptr
-                r_ptr = r_ptr.next
-                dummyH=dummyH.next
+        res_head = ListNode(0)
+        curr = res_head
+        fast = head
+        slow = head
+        while(fast and fast.next):
+            fast = fast.next.next
+            slow = slow.next
 
-                dummyH.next  = l_ptr
-                l_ptr = l_ptr.next
-                dummyH =dummyH.next
-            dummyH.next = None
-        else:
-            for i in range((length-1)//2):
-                dummyH.next = r_ptr
-                r_ptr = r_ptr.next
-                dummyH=dummyH.next
-
-                dummyH.next  = l_ptr
-                l_ptr = l_ptr.next
-                dummyH =dummyH.next
-           
-            dummyH.next.next = None
+        middle = slow.next
+        slow.next = None
+        orginal_ll = head
+        reverse_ll = self.rev_ll(middle)
+        while(reverse_ll is not None and orginal_ll is not None):
+            curr.next = orginal_ll
+            curr=curr.next
+            orginal_ll = orginal_ll.next
+            curr.next = reverse_ll
+            curr=curr.next
+            reverse_ll = reverse_ll.next
             
-        return result_head.next
-
-
-            
-        
+        if(reverse_ll):
+            curr.next = reverse_ll
+        if(orginal_ll):
+              curr.next = orginal_ll
+        return res_head.next
 
 
         
-            
+        
+        
 
+            
 
         
